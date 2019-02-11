@@ -58,6 +58,11 @@ namespace Assignment2_S19
             Console.ReadKey();
         }
 
+        //Naman: I liked working on this assignment.
+        // 7th question was challenging for me and helped me in learning. 
+        //It brushed up my concepts on loops, arrays and dictionaries.
+
+
         static void displayArray(int[] arr)
         {
             Console.WriteLine();
