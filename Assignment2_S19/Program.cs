@@ -55,7 +55,7 @@ namespace Assignment2_S19
             Console.WriteLine("\n\nDay of Programmer");
             int year = 2017;
             Console.WriteLine(dayOfProgrammer(year));
-            Console.ReadKey();
+            Console.ReadLine();
         }
 
         //Naman: I liked working on this assignment.
@@ -79,9 +79,24 @@ namespace Assignment2_S19
         // Complete the rotLeft function below.
         static int[] rotLeft(int[] a, int d)
         {
-            return new int[] { };
+
+            for (int i = 0; i < d; i++)  //calling other function for computation as 2 for loops will complex the functionalities
+            {
+                rotleftlogic(a, d);
+            }
+            return a;
         }
 
+        static int[] rotleftlogic(int[] a, int d)
+        {
+            int temp = a[0];
+            for (int i = 0; i < a.Length - 1; i++)  //logic for rotating array left
+            {
+                a[i] = a[i + 1];
+            }
+            a[a.Length - 1] = temp;
+            return a;
+        }
         // Complete the maximumToys function below.
         static int maximumToys(int[] prices, int k)
         {
