@@ -120,20 +120,98 @@ namespace Assignment2_S19
         // Complete the balancedSums function below.
         static string balancedSums(List<int> arr)
         {
-            return "";
+            int leftSum = 0;
+            int rightSum = 0;
+            for (int i = 0; i < arr.Count; i++)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    leftSum = leftSum + arr[j];  // taking sum of int on the left of i
+                }
+
+                for (int j = i + 1; j < arr.Count; j++)  //taking sum of int on the right of i
+                {
+                    rightSum = rightSum + arr[j];
+                }
+
+                if (leftSum == rightSum)  //if both left and right are equal
+                {
+                    return "Yes";
+                }
+
+                rightSum = 0;
+                leftSum = 0;
+
+
+            }
+            return "No";
         }
 
-        // Complete the missingNumbers function below.
-        static int[] missingNumbers(int[] arr, int[] brr)
+        static int[] missingNumbers(int[] arr, int[] brr)//to be done
         {
-            return new int[] { };
+
+            Dictionary<int, int> arrd = arr.GroupBy(c => c)
+                        .OrderBy(c => c.Key)
+                        .ToDictionary(grp => grp.Key, grp => grp.Count());
+
+
+            Dictionary<int, int> brrd = brr.GroupBy(c => c)
+                       .OrderBy(c => c.Key)
+                       .ToDictionary(grp => grp.Key, grp => grp.Count());
+
+            ArrayList Mylist = new ArrayList();
+            foreach (var k in brrd)
+            {
+                if (arrd.TryGetValue(k.Key, out int value))
+                {
+                    if (value != k.Value)
+                    {
+                        Mylist.Add(k.Key);
+                    }
+                }
+                else
+                {
+                    Mylist.Add(k.Key);
+                }
+            }
+            return Mylist.OfType<int>().ToArray();
         }
 
 
-        // Complete the gradingStudents function below.
         static int[] gradingStudents(int[] grades)
         {
-            return new int[] { };
+
+            int temp = 0;
+            int[] gradeFinal = { grades.Length };
+            for (int i = 0; i < grades.Length; i++)
+            {
+                if (grades[i] <= 100 && grades[i] >= 0) //check for boundary condition
+                {
+                    if (grades[i] < 38) //no computation for 38
+                    {
+
+                    }
+                    else if ((grades[i] + 2) % 5 == 0) //for values less than 2 of multiple of 5
+                    {
+                        temp = grades[i] + 2;
+                        grades[i] = temp;
+                        temp = 0;
+                    }
+                    else if ((grades[i] + 1) % 5 == 0)  //for values less than 1 of multiple of 5
+                    {
+                        temp = grades[i] + 1;
+                        grades[i] = temp;
+                        temp = 0;
+                    }
+                }
+                else
+                {
+                    Console.Write("Grade not in range ");
+                }
+
+            }
+
+            return grades;
         }
 
         // Complete the findMedian function below.
