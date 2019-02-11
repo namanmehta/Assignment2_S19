@@ -61,6 +61,10 @@ namespace Assignment2_S19
         //Naman: I liked working on this assignment.
         // 7th question was challenging for me and helped me in learning. 
         //It brushed up my concepts on loops, arrays and dictionaries.
+        //Vijaya Singh
+        //While this assignment , I learnt that Dictionary can be used as a easy alternative of 
+        //arrays and it can make computation problems easy to solve. Also, this assignments highlighted 
+        //that problems are easily to address when array is sorted (selection sort and bubble sort).
 
 
         static void displayArray(int[] arr)
